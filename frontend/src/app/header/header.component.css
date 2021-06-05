@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,700;0,800;1,200&display=swap');
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  box-shadow:2px 2px 8px 2px #434B5B;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.jumbotron img {
+  object-fit: cover;
+  height: 98%;
+  box-shadow: 2px 3px 8px 2px #434B5B;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  width: 75%;
+  height: 130px;
+  align-self: flex-start;
+}
+
+
+.container_navbar {
+  width: 25%;
+}
+/* .container_navbar:hover {
+  box-shadow: inset 2px 3px 18px 5px #434B5B;
+} */
+
+.container h1 {
+  margin-left: 20px;
+  align-self: center;
+}
+
+.navbar {
+  width: 100%;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+}
+
+.container_item {
+  border: 1px solid #1565C0;
+  width: 50%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+li:hover, a:hover {
+  background-color: #1565C0;
+  color: #f2f2f2;
+}
+
+li , a{
+  background-color: #1E88E5;
+  color: #f2f2f2;
+}
+
+@media all and (max-width: 971px) {
+  .container h1 {
+    margin-left: 40px;
+    font-size: 25px;
+  }
+  .nav {
+    flex-direction: column;
+  }
+
+  .container_item {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 971px) {
+  .container h1 {
+    margin-left: 40px;
+    font-size: 25px;
+  }
+  .nav {
+    flex-direction: column;
+  }
+
+  .container_item {
+    width: 100%;
+  }
+}

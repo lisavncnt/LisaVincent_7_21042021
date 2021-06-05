@@ -1,0 +1,30 @@
+
+<div class="container">
+  <h1>Enregistrer un compte</h1>
+</div>
+
+<form [formGroup]="signupForm">
+  <div class="form-group">
+    <label for="pseudo">Pseudo</label>
+    <input type="pseudo" class="form-control" id="pseudo" formControlName="pseudo">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" formControlName="email">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" formControlName="password">
+  </div>
+
+  <div class="div-btn">
+    <button class="btn btn-lg" [disabled]="signupForm.invalid" (click)="onSignup()">Créer mon compte</button>
+  </div>
+
+
+<p class="text-danger" *ngIf="errorMsg">{{ errorMsg }}</p>
+</form>
+
+

@@ -1,11 +1,10 @@
 export class User {
-  id!: string;
-  pseudo!: string;
-  email!: string;
-  password!: string;
-  image_url!: string;
-  totalLiked!: number;
-  is_admin!: number;
-  created_at!: Date;
-  updated_at!: Date;
+  id = "";
+  pseudo = "";
+  email = "";
+  password = "";
+  image_url = "";
+  totalLiked = 0;
+  is_admin = 0;
+  user_id = "";
 }

@@ -1,0 +1,64 @@
+<div class="jumbotron">
+
+  <div class="container">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAdVBMVEUAAAD///
+    +lpaXc3NxhYWGpqanh4eGBgYHt7e339/c/Pz/Z2dnm5ubDw8OioqK2trZvb288PDzT09OOjo5eXl4gICBUVFTNzc1JSUlZ
+    WVmdnZ309PStra0aGhqHh4e+vr4sLCyVlZV1dXUlJSVMTEx+fn5oaGifHeHZAAAFe0lEQVR4nO2ZaVvjOgyFnZVuaWkKpB
+    vpAtP//xNvJMtbFsrMFMo897wfwHYUx8e2JBuUAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAA4DtIsyJpKOP6eO+hfAVPReQxqu89nlszyaM2p3uP6aYsOvpoHZ/vPazbMXKylsrbrZs+4+OpJG9NFufvHu
+    afowUm9CNuqvR7pyU+dI29CRj/NGd9f+9v1wLTE/2kesyFXJY0ZBJu5PyLh/xbHMmz+h6U7HOvaixLqBexlsUKbVsCo2jx
+    5eP+PHsa0L7b/hhp6Qunh7RV0hKuUicYfcPAP01GI8q67exQaskD3ummtYjlVXz0bEvxv/nmqT78NIGq1nuvDTvdq1kcvU
+    vVTpTlrN6y1kaSKJ/L6Ielk3NV9cT3cXvjdXiytjprtuPr5CmbT5fnLM70cnMyWaRcfsmTJF95hRcyVlmZz73JPi+aNwpp
+    0BbbOM6ooc6koEmbqq2nzcPDkgy0rlVSlsmKi+uttXu8KjAqbP8zqiZaVqqZiINHZoc8mEpOC5wa1zAF/+gkUzWx2ZhnyL
+    fIgid6vzGcqD1Ddhfrh5ldtgd/eMNYhd7HzHt7/7tpeDiaiLBYuULid8yB2A/PpDmw8PvyzyXROlTIEmP5hj+GF+5vliRT
+    adhN+bgypUmYmsJ7oPAYTGfsK2xtidE1hTxbbSH9Cimkb7x62X6zdgrXwXt6YHZor6IlkWZFEfMcKFQDCg/jyHj1YTuWrw
+    4p3Os9MDZvj7aVEaItdpV8wBToo4tofDitRqauH1TsO+Q8RmFTIDsd+Mlqpsz2d+mb8sSFCqfISzH8ylrZPe8rbGZ/I7O3
+    lA6ar/YrZK8Z6c54Lmh3vsjA2aJZIp2/RqZAoznuaK8dAoUPZld6CtWMVFc7ozCxo7cC1Txir2pujZFNIdKlzhWrPCl9hb
+    +4dWuGK6s5oJCcSr1GPHmiR77ZCEnMSHjxXkwhbR2oZDgzb28ZhaFdZM45TWHqFMZGYeor5I/b/Dj3FT65vauc2AGF2oLm
+    ec6+pYPXRAuxFnMRZgtBYhNhSY/CUWDnr+HOKdz2ruGJ3zHZI1CYfqBw/mcKbb9S4CNLdNiPryg8c7XajqzCqd2BVmBNW3
+    hjRFk/POppKfVRpuoq7N+lByVeZhQ+WkF6lxZuxi7DCguzCLOPFXKIWJoBOmFTT2Hh1opinjtSmAiazOcHfYMMFfZHGmrI
+    fYUUaV4/jDR9ChOzGlcUxmYmOCSZfOgyYMNMdMykOXW7N9jiXYWdbPGurSo7HZItDjoHDGaLPoWlnttVEn1iDcfzk8TcQ3
+    vIPSg1LHEbKmxn/DA6dDL+Rg1k/D6Fp/agBhTWod0nzqWVr1CFf5OLVaiwfWoLziEdhQ/WH72GQYXhXAwrbMXSzp22S+vG
+    9eg6KDjkZL7C1snbq0ccsnyFcvO0J++xO3kH/ZpCXz7MPYXm5P2WB3Y2wHM3xNMveXhZt+6HwrHmO4wRdWlq+4l7XBfu9s
+    T15vmWLzkXUXh0Nx4muD2tqLugX/cBujxlm1os9k2FL0tNgRou8o0m4vEHNjRMyQDkMTSTcp/hoN9UVj1L+Jd4+fDb4EUs
+    dObTyZ/DT/WsN9iN/1BxD4XaMUv1TL/Yd96otBEPmlx7/fe4i0KWFo3eykiyPMXD3cCfLP6Wuyg0MWoqS8aK5chy8//O3E
+    ehH4bzIOPdegUbF6cz0817/QRO1XTqBPb+Y+ZfxU/MQnH9rX+LOjxyFj/sr703YX0qeYvukji9bg0AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMD/nP8AebM1VrxfT/4AAAAASUVORK5CYII=" alt="">
+
+    <div *ngIf="isAuth == false">
+      <h1>Bienvenue</h1>
+      <p>Pensez à vous connecter !</p>
+    </div>
+
+    <div *ngIf="isAuth == true">
+      <h1>Bienvenue {{user.pseudo}},</h1>
+      <p>Qu'avez-vous fait de beau ?!</p><br>
+      <p>Venez le poster dès maintenant.</p>
+    </div>
+  </div>
+
+  <div *ngIf="isAuth == false" class="container container_navbar">
+    <nav class="navbar">
+      <ul class="nav">
+        <li routerLinkActive="active" class="nav-item container_item">
+          <a routerLink="signup" class="nav-link">New User</a>
+        </li>
+        <li routerLinkActive="active" class="nav-item container_item">
+          <a  routerLink="signin" class="nav-link">Login</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div *ngIf="isAuth == true" class="container container_navbar">
+    <nav class="navbar">
+      <ul class="nav">
+        <li routerLinkActive="active" class="nav-item container_item">
+          <a routerLink="user" class="nav-link" (click)='onClickUser()'>Profil</a>
+        </li>
+        <li routerLinkActive="active" class="nav-item container_item">
+          <a  routerLink="signout" class="nav-link" (click)="onSignout()">Sign Out</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

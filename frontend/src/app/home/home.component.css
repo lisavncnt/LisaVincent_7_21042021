@@ -1,0 +1,11 @@
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-items {
+  width: 50%;
+  text-align: center;
+}

@@ -8,8 +8,8 @@ const bcrypt = require('bcrypt');
 User.hasMany(Message, {foreignKey: 'msg_id'});
 User.hasMany(Img, {foreignKey: 'img_id'});
 
-exports.signup = (req, res) => {
-    bcrypt.hash(req.body.password, 10)
+exports.signup = async (req, res) => {
+    await bcrypt.hash(req.body.password, 10)
         .then(hash => {
             User.create({
                 image_url: req.body.image_url,
@@ -28,33 +28,45 @@ exports.signup = (req, res) => {
         .catch(error => res.status(500).json({ error }));
 };
 
-exports.signin = async (req, res, next) => {
-    await User.findOne({ 
-      where: {
-          email: req.body.email
+exports.signin = (req, res, next) => {
+  User.findOne({ where: {email: req.body.email} })
+    .then(user => {
+      if (!user) {
+        return res.status(401).json({ error: 'Utilisateur non trouvé !' });
       }
-    }).then(user => {
-        if (!user) {
-          return res.status(401).json({ error: 'Utilisateur non trouvé !' });
-        }
-        bcrypt.compare(req.body.password, user.password)
-          .then(valid => {
-      console.log(req.body.password);
-
-            if (!valid) {
-              return res.status(401).json({ error: 'Mot de passe incorrect !' });
-            }
-            res.status(200).json({
-                user_id: user.id,
-                is_admin: user.is_admin,
-                token: jwt.sign(
-                    { user_id: user.id },
-                    process.env.JWT_SECRET_KEY,
-                    { expiresIn: '24h' }
-                )});  
-          }).catch(error => res.status(401).json({ error }))
-      }).catch(error => res.status(500).json({ error }));
+      bcrypt.compare(req.body.password, user.password)
+        .then(valid => {
+          if (!valid) {
+            return res.status(401).json({ error: 'Mot de passe incorrect !' });
+          }
+          res.status(200).json({
+            user_id: user.id,
+            is_admin: user.is_admin,
+            token: jwt.sign(
+                { userId: user.id },
+                'RANDOM_TOKEN_SECRET',
+                { expiresIn: '24h' }
+            )
+          });
+        })
+        .catch(error => res.status(500).json({ error }));
+    })
+    .catch(error => res.status(500).json({ error }));
 };
+
+function comparePassword(password1, password2) {
+  password1 = req.body.password;
+  password2 = user.password;
+  return new Promise((resolve, reject) => {
+    bcrypt.compare(password1, password2, function(err, res) {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(res);
+      }
+    });
+  });
+}
 
 exports.getOneUser = (req, res) => {
     User.findOne({

@@ -1,0 +1,20 @@
+.container-fluid  {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+button {
+  width: 15%;
+}
+
+img {
+  border-radius: 50%;
+  width: 15%;
+}
+
+.container {
+  margin-top: 50px;
+  background-color: wheat;
+}

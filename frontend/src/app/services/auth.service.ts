@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
 import { User } from '../models/User.model';
-import { stringify } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
@@ -21,10 +20,25 @@ export class AuthService {
   constructor(private http: HttpClient,
               private router: Router) { }
 
-  signUp(image_url: File, pseudo: string, email: string, password: string) {
+  createUser(user: User, image_url: File) {
+    return new Promise((resolve, reject) => {
+      const formData = new FormData();
+      formData.append('user', JSON.stringify(user));
+      formData.append('image_url', image_url);
+      this.http.post('http://localhost:3000/users/', formData).subscribe(
+        (response: any) => {
+          resolve(response);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
+  }
+
+  signUp(pseudo: string, email: string, password: string) {
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/signup', {
-        image_url: image_url,
         pseudo: pseudo,
         email: email,
         password: password
@@ -58,7 +72,7 @@ export class AuthService {
   signIn(email: string, password: string) {
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/signin',
-      {email: email, password: password})
+      {email: email, password})
       .subscribe(
         (data: any) =>  {
           resolve(data);

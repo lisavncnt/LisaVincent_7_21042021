@@ -40,13 +40,14 @@ exports.modifyComment = async (req, res, next) => {
         }
     })
     .then(
-        await Comment.create({
-            content: req.body.content
-        })
-        .then((comment) => res.status(200).json(comment))
-        .catch(error => res.status(400).json({ error: error }))
-    )
-    .catch(
+        () => {
+            Comment.create({
+                content: req.body.content
+            })
+            .then((comment) => res.status(200).json(comment))
+            .catch(error => res.status(400).json({ error: error }))
+        }
+    ).catch(
         error => res.status(500).json({ error: error })
     );
 };

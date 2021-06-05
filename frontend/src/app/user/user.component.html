@@ -1,0 +1,21 @@
+<div class="container-fluid well span6" *ngIf="!loading">
+  <div class="row-fluid">
+    <div class="card-body">
+      <div class="card-img">
+        <img [src]="user.image_url" alt="">
+      </div>
+      <div class="card-text">
+        <h2>{{user.pseudo}}</h2>
+        <h6>{{user.email}}</h6>
+      </div>
+    </div>
+
+    <div class="control-buttons">
+      <button class="btn btn-primary"(click)="onBack()">Home</button>
+      <button class="btn btn-success" (click)="onModify()" *ngIf="user_id === user.id || user.is_admin == 1">Edit</button>
+      <button class="btn btn-danger" (click)="onDelete()" *ngIf="user_id === user.id || user.is_admin == 1">Delete</button>
+    </div>
+
+
+  </div>
+</div>
